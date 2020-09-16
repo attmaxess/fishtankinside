@@ -126,7 +126,7 @@ public class FishKoi : MonoBehaviour
         Wander();
         AvoidObstacles();
 
-        DrawDebugAids();
+        //DrawDebugAids();
         UpdatePosition();
         Balance();
     }
@@ -134,7 +134,7 @@ public class FishKoi : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        DrawDebugAids();
+        //DrawDebugAids();
     }
 
 

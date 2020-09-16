@@ -3179,7 +3179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1585201990951412, guid: d16dd8da7e4ccbe42b1b4a344a72ecbb,
+  m_PlanePrefab: {fileID: 1585201990951412, guid: 2e195fd84bba74cc4b47b92d9854aa2c,
     type: 3}
   m_DetectionMode: -1
 --- !u!114 &1335839538
@@ -3531,24 +3531,6 @@ Transform:
   m_Father: {fileID: 1518861584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1615072673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7017350212660381782, guid: 873946f4d949e460da1c0b7eb3f24cb6,
-    type: 3}
-  m_PrefabInstance: {fileID: 5415113821320070080}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1615072674
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615072673}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!224 &1634338853 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6657821381958674700, guid: 0de2216f1ea3c4e5895517a0fb17e1c3,
@@ -4454,6 +4436,16 @@ PrefabInstance:
     - target: {fileID: 7095692297040841208, guid: 873946f4d949e460da1c0b7eb3f24cb6,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848848833554140129, guid: 873946f4d949e460da1c0b7eb3f24cb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848848833554140129, guid: 873946f4d949e460da1c0b7eb3f24cb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

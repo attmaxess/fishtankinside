@@ -66,7 +66,7 @@ public class FishKoi : MonoBehaviour
     /// <summary>
     /// Chi so can bang
     /// </summary>
-    public Transform balanceMesh;    
+    public Transform balanceMesh;
     public Vector3 balancePosition;
     public Quaternion balanceRotation;
 
@@ -129,15 +129,24 @@ public class FishKoi : MonoBehaviour
         //DrawDebugAids();
         UpdatePosition();
         Balance();
+        CheckInView();
     }
 
 
     private void OnDrawGizmos()
     {
-        //DrawDebugAids();
+        DrawDebugAids();
     }
 
+    private void OnEnable()
+    {
+        FisherCount.SetFishesCount(FisherCount.GetFishesCount() + 1);
+    }
 
+    private void OnDisable()
+    {
+        FisherCount.SetFishesCount(FisherCount.GetFishesCount() - 1);
+    }
     /* ----- Fish Methods ----- */
 
 
@@ -256,7 +265,6 @@ public class FishKoi : MonoBehaviour
 
     }
 
-
     /// <summary>
     /// Updates the fish's position as it swims.
     /// </summary>
@@ -285,5 +293,81 @@ public class FishKoi : MonoBehaviour
 
         if (balanceMesh.localRotation != balanceRotation)
             balanceMesh.localRotation = Quaternion.Slerp(balanceMesh.localRotation, balanceRotation, Time.fixedDeltaTime);
+    }
+
+    /* -- Check if fish in camera view --  */
+    [Header("Check in range Camera view")]
+    /// <summary>
+    /// 
+    /// </summary>
+    public Transform targetPoint;
+    /// <summary>
+    /// 
+    /// </summary>
+    public float holdGazeTimeInSeconds = 2;
+    /// <summary>
+    /// 
+    /// </summary>
+    private bool IsTargetPointInsideCameraView
+    {
+        get { return _IsTargetPointInsideCameraView; }
+        set
+        {
+            SetValueTargetPointInsideCameraView(value);
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [SerializeField] bool _IsTargetPointInsideCameraView = false;
+    /// <summary>
+    /// 
+    /// </summary>
+    void SetValueTargetPointInsideCameraView(bool value)
+    {
+        bool lastValue = _IsTargetPointInsideCameraView;
+        if (value == lastValue) return;
+        FisherCount.SetFishesInrange(value ? FisherCount.GetFishesInrange() - 1 : FisherCount.GetFishesInrange() + 1);
+        _IsTargetPointInsideCameraView = value;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    private float currentGazeTimeInSeconds = 0;
+    /// <summary>
+    /// 
+    /// </summary>
+    void CheckInView()
+    {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(targetPoint.position);
+        if (screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1)
+        {
+            currentGazeTimeInSeconds += Time.deltaTime;
+            if (currentGazeTimeInSeconds >= holdGazeTimeInSeconds)
+            {
+                currentGazeTimeInSeconds = 0;
+                //DO STUFF
+                IsTargetPointInsideCameraView = true;
+            }
+        }
+        else
+        {
+            currentGazeTimeInSeconds = 0;
+            IsTargetPointInsideCameraView = false;
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void HeadToObject(Transform obj)
+    {
+        transform.LookAt(obj);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void Turn180()
+    {
+        transform.Rotate(Vector3.up, 180);
     }
 }

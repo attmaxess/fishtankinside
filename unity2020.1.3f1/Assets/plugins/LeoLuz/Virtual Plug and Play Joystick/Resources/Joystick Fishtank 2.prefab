@@ -278,7 +278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4781058772813232591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7655196400116130521}
+        m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
+        m_MethodName: btnKickFishStraight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2960116047030344464
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8008192731651937138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7655196400116130521}
+        m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
+        m_MethodName: btnCallFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5146286756594978460
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +556,7 @@ GameObject:
   - component: {fileID: 6985726521451464638}
   - component: {fileID: 6985695297958633804}
   - component: {fileID: 1615072674}
+  - component: {fileID: 7655196400116130521}
   m_Layer: 5
   m_Name: Joystick Fishtank 2
   m_TagString: Untagged
@@ -633,6 +658,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7655196400116130521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017350212660381782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc945dc207aae4131ae397fc96b3678b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7017591404863758986
 GameObject:
   m_ObjectHideFlags: 0

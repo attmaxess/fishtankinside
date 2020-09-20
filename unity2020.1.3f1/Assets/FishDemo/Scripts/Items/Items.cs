@@ -9,6 +9,16 @@ public class Items : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    public Transform uiItemList;
+    /// <summary>
+    /// 
+    /// </summary>
     public List<Texture2D> textures;
-    
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ToggleUIItemList()
+    {
+        uiItemList.gameObject.SetActive(!uiItemList.gameObject.activeSelf);
+    }
 }

@@ -119,7 +119,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7998432305300615715}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7655196400116130521}
+        m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
+        m_MethodName: btnKickFishStraight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1180434844008966327
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +293,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7655196400116130521}
         m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
-        m_MethodName: btnKickFishStraight
+        m_MethodName: btnDeleteFish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -413,7 +425,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7655196400116130521}
         m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
-        m_MethodName: btnCallFish
+        m_MethodName: btnDuplicateFish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -542,7 +554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2205490556554070373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7655196400116130521}
+        m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
+        m_MethodName: btnCallFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7017350212660381782
 GameObject:
   m_ObjectHideFlags: 0

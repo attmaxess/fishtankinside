@@ -25,7 +25,7 @@ public class DetectSelect : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        isSelected = true;
+        //isSelected = true;
     }
     /// <summary>
     /// 
@@ -39,7 +39,7 @@ public class DetectSelect : MonoBehaviour
     /// </summary>
     private void OnMouseUp()
     {
-        isSelected = false;
+        //isSelected = false;
     }
     /// <summary>
     /// 

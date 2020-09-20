@@ -26,4 +26,21 @@ public class JoystickFishtank : MonoBehaviour
         FishKoi fishKoi = targetCall.GetComponent<FishKoi>();
         fishKoi.Turn180();
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void btnDuplicateFish()
+    {
+        if (FishSelectionStatic.fishSelection.lastSelect == null) return;
+        Fishtemplate.Instance.Duplicate(FishSelectionStatic.fishSelection.lastSelect);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void btnDeleteFish()
+    {
+        if (FishSelectionStatic.fishSelection.lastSelect == null) return;
+        if (Application.isPlaying) DestroyImmediate(FishSelectionStatic.fishSelection.lastSelect.gameObject);
+        else Destroy(FishSelectionStatic.fishSelection.lastSelect.gameObject);
+    }
 }

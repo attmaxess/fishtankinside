@@ -250,8 +250,12 @@ public class FishKoi : MonoBehaviour
     /// <summary>
     /// Draws visual debug aids that can be seen in the editor viewport.
     /// </summary>
+    [Header("DrawDebugAids")]
+    public bool isDrawDebugAids = false;
+
     void DrawDebugAids()
     {
+        if (!isDrawDebugAids) return;
         // Draw lines from the fish illustrating what it "sees" and what
         // evasive action it may be taking.
 
@@ -355,6 +359,47 @@ public class FishKoi : MonoBehaviour
             currentGazeTimeInSeconds = 0;
             IsTargetPointInsideCameraView = false;
         }
+    }    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="outlines"></param>
+    /// <param name="OnEnable"></param>
+    void SetOutlines(cakeslice.Outline[] outlines, bool OnEnable)
+    {
+        foreach (cakeslice.Outline outline in outlines)
+            outline.enabled = OnEnable;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("SetOnAllOutlines")]
+    public void SetOnAllOutlines()
+    {
+        cakeslice.Outline[] outlines = FindObjectsOfType<cakeslice.Outline>();
+        if (outlines.Length == 0) return;
+        SetOutlines(outlines, true);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("SetOffAllOutlines")]
+    public void SetOffAllOutlines()
+    {
+        cakeslice.Outline[] outlines = FindObjectsOfType<cakeslice.Outline>();
+        if (outlines.Length == 0) return;
+        SetOutlines(outlines, false);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("ToggleAllOutlines")]
+    public void ToggleAllOutlines()
+    {
+        cakeslice.Outline[] outlines = FindObjectsOfType<cakeslice.Outline>();
+        if (outlines.Length == 0) return;
+        bool currentEnable = outlines[0];
+        SetOutlines(outlines, !currentEnable);
     }
     /// <summary>
     /// 

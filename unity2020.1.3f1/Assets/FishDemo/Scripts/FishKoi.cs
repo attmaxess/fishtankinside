@@ -331,7 +331,7 @@ public class FishKoi : MonoBehaviour
     {
         bool lastValue = _IsTargetPointInsideCameraView;
         if (value == lastValue) return;
-        FisherCount.SetFishesInrange(value ? FisherCount.GetFishesInrange() - 1 : FisherCount.GetFishesInrange() + 1);
+        FisherCount.SetFishesInrange(value ? FisherCount.GetFishesInrange() + 1 : FisherCount.GetFishesInrange() - 1);
         _IsTargetPointInsideCameraView = value;
     }
     /// <summary>

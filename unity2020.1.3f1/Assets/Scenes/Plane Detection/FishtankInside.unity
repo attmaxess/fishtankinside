@@ -4142,6 +4142,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: UserInterface
       objectReference: {fileID: 0}
+    - target: {fileID: 2843471771421172426, guid: 0de2216f1ea3c4e5895517a0fb17e1c3,
+        type: 3}
+      propertyPath: m_text
+      value: "Kh\xF4ng gian AR c\u1EA7n \u0111\u01B0\u1EE3c kh\u1EDFi t\u1EA1o. \nH\xE3y
+        xoay camera xung quanh kh\u1EAFp ph\xF2ng \u0111i n\xE0o,\n...Ch\u01B0a s\u1EB5n
+        s\xE0ng..."
+      objectReference: {fileID: 0}
     - target: {fileID: 3868296644361232742, guid: 0de2216f1ea3c4e5895517a0fb17e1c3,
         type: 3}
       propertyPath: m_AnchorMin.y

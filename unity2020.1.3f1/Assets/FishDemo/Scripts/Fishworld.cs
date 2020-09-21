@@ -35,8 +35,7 @@ public class Fishworld : Singleton<Fishworld>
             if (arPlanes.Length == 0) yield return new WaitForSeconds(1f);            
             else
             {
-                transform.SetParent(arPlanes[0].transform);
-                transform.localPosition = Vector3.zero;
+                transform.position = arPlanes[0].transform.position;
                 UserInterface.Instance.SetSceneStatusReady();
                 fishWorldBody.position = Camera.main.transform.position + Camera.main.transform.forward / 10f;
                 fishWorldBody.gameObject.SetActive(true);

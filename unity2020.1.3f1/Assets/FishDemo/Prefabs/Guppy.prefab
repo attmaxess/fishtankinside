@@ -83,7 +83,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808222576249936374}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898701895421639131}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2324917546215853420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680240251413983003}
   - component: {fileID: 4883830946227829194}
+  - component: {fileID: 8568348576954455029}
   m_Layer: 0
   m_Name: Guppy
   m_TagString: Untagged
@@ -168,23 +169,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9be2df5ef1af46739c2437b9f9e5128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishname: "C\xE1 b\u1EA3y m\xE0u"
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.8
   swimSpeedMin: 0.002
   swimSpeedMax: 0.005
-  minWiggleSpeed: 0.5
-  maxWiggleSpeed: 1
+  minWiggleSpeed: 0.1
+  maxWiggleSpeed: 0.1
   maxTurnRateY: 45
   maxWanderAngle: 10
-  wanderPeriodDuration: 0.8
-  wanderProbability: 0.15
+  wanderPeriodDuration: 0.2
+  wanderProbability: 0.01
   balanceMesh: {fileID: 6200719630078976205}
   balancePosition: {x: 0, y: 0, z: 0}
   balanceRotation: {x: 0, y: 1, z: 0, w: 0}
   swimSpeed: 0
+  isDrawDebugAids: 0
   targetPoint: {fileID: 3602273776746566103}
   holdGazeTimeInSeconds: 2
   _IsTargetPointInsideCameraView: 0
+--- !u!114 &8568348576954455029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4676691848620901065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d75319a051445f79216c438fd58006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsheets:
+    list:
+    - skillsheet: {fileID: 0}
+      key: obstacleSensingDistance
+      tooltip: "Kho\u1EA3ng c\xE1ch th\u1EA5u th\u1ECB"
+      valueString: 0.8
+      component: {fileID: 4883830946227829194}
+    - skillsheet: {fileID: 0}
+      key: swimSpeedMin
+      tooltip: "C\u1EADn t\u1ED1c"
+      valueString: 0.002
+      component: {fileID: 4883830946227829194}
+    - skillsheet: {fileID: 0}
+      key: swimSpeedMax
+      tooltip: "\u0110\u1EA1t t\u1ED1c"
+      valueString: 0.005
+      component: {fileID: 4883830946227829194}
 --- !u!1 &4676788582978391031
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +319,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8765787180527250459}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 

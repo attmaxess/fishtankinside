@@ -9,7 +9,9 @@ using UnityEngine.Assertions;
 /// </summary>
 public class FishKoi : MonoBehaviour
 {
-
+    [FishSkill(editable = false)]
+    [Tooltip("Tên gọi")]
+    public string fishname;
     /// <summary>
     /// A location inside the tank that will be used as a reference point when
     /// calculating turns to avoid obstacles.
@@ -20,16 +22,22 @@ public class FishKoi : MonoBehaviour
     /// Indicates how close an obstacle must be (in meters) before the fish 
     /// begins to take evasive action. 
     /// </summary>
+    [FishSkill(editable = true)]
+    [Tooltip("Khoảng cách thấu thị")]
     public float obstacleSensingDistance = 0.8f;
 
     /// <summary>
     /// The minimum speed this fish should move in meters/second.
     /// </summary>
+    [FishSkill(editable = true)]
+    [Tooltip("Cận tốc")]
     public float swimSpeedMin = 0.2f;
 
     /// <summary>
     /// The maximum speed this fish should move in meters/second.
     /// </summary>
+    [FishSkill(editable = true)]
+    [Tooltip("Đạt tốc")]
     public float swimSpeedMax = 0.6f;
 
     /// <summary>
@@ -359,7 +367,7 @@ public class FishKoi : MonoBehaviour
             currentGazeTimeInSeconds = 0;
             IsTargetPointInsideCameraView = false;
         }
-    }    
+    }
     /// <summary>
     /// 
     /// </summary>

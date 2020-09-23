@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using cakeslice;
-
+using System.Linq;
 /// <summary>
 /// 
 /// </summary>
 public class FishSelection : MonoBehaviour
-{    
+{
     /// <summary>
     /// 
     /// </summary>
     public Transform lastSelect
     {
         get { return _lastSelect; }
-        set { Highlight(value); }
+        set
+        {
+            Highlight(value);
+            CreateInfoOnUI(value);
+            _lastSelect = value;
+        }
     }
     /// <summary>
     /// 
@@ -50,9 +55,29 @@ public class FishSelection : MonoBehaviour
                 SetOutlines(outlines, false);
                 outlines = select.GetComponentsInChildren<cakeslice.Outline>();
                 SetOutlines(outlines, true);
+            }            
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    void CreateInfoOnUI(Transform select)
+    {        
+        if (select == null) return;
 
-            }
-            _lastSelect = select;
+        Skillsheet skillsheet = select.GetComponent<Skillsheet>();
+
+        string fishname = skillsheet.skillsheets.GetKeyValuePair("fishname").valueString;
+        ModelInfo.Instance.txtFishName.text = fishname;
+        int countFish = FindObjectsOfType<FishKoi>().ToList()
+            .Where(x => x.fishname == fishname).Count();
+        ModelInfo.Instance.txtFishNumber.text = "Số lượng : " + countFish.ToString();
+
+        if (FishInfo.Instance != null && FishInfo.Instance.gameObject.activeSelf)
+        {
+            FishInfo.Instance.StopAllCoroutines();
+            FishInfo.Instance.DeleteAllInfo();
+            FishInfo.Instance.CreateInfo(skillsheet.skillsheets);
         }
     }
     /// <summary>
@@ -77,7 +102,7 @@ public class FishSelection : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        
+
     }
     /// <summary>
     /// 
@@ -86,7 +111,7 @@ public class FishSelection : MonoBehaviour
     public void SetOnAllOutlines()
     {
         cakeslice.Outline[] outlines = FindObjectsOfType<cakeslice.Outline>();
-        if (outlines.Length == 0) return;        
+        if (outlines.Length == 0) return;
         SetOutlines(outlines, true);
     }
     /// <summary>

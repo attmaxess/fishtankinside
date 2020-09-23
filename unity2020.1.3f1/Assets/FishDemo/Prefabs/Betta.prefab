@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680240251413983003}
   - component: {fileID: 4883830946227829194}
+  - component: {fileID: 4126169636859681333}
   m_Layer: 0
   m_Name: Betta
   m_TagString: Untagged
@@ -44,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9be2df5ef1af46739c2437b9f9e5128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishname: "C\xE1 xi\xEAm"
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.08
   swimSpeedMin: 0.005
@@ -58,9 +60,39 @@ MonoBehaviour:
   balancePosition: {x: 0, y: 0, z: 0}
   balanceRotation: {x: 0, y: 0, z: 0, w: 1}
   swimSpeed: 0.007107279
+  isDrawDebugAids: 0
   targetPoint: {fileID: 4509556755475897109}
   holdGazeTimeInSeconds: 2
   _IsTargetPointInsideCameraView: 0
+--- !u!114 &4126169636859681333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4676691848620901065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d75319a051445f79216c438fd58006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsheets:
+    list:
+    - skillsheet: {fileID: 0}
+      key: obstacleSensingDistance
+      tooltip: "Kho\u1EA3ng c\xE1ch th\u1EA5u th\u1ECB"
+      valueString: 0.08
+      component: {fileID: 4883830946227829194}
+    - skillsheet: {fileID: 0}
+      key: swimSpeedMin
+      tooltip: "C\u1EADn t\u1ED1c"
+      valueString: 0.005
+      component: {fileID: 4883830946227829194}
+    - skillsheet: {fileID: 0}
+      key: swimSpeedMax
+      tooltip: "\u0110\u1EA1t t\u1ED1c"
+      valueString: 0.01
+      component: {fileID: 4883830946227829194}
 --- !u!1 &4676788582978391031
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8809437868378973544}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -133,7 +165,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 197838152, guid: 2a00c40a88027420bae29a0076bfbe4a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 561941901673181610, guid: 2a00c40a88027420bae29a0076bfbe4a,
         type: 3}

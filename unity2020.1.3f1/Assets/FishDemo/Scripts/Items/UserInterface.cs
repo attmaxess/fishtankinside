@@ -10,16 +10,31 @@ public class UserInterface : Singleton<UserInterface>
     /// <summary>
     /// 
     /// </summary>
+    public Transform trnTextSceneStatus;
+    /// <summary>
+    /// 
+    /// </summary>
     public TextMeshProUGUI txtSceneStatus;
+    /// <summary>
+    /// 
+    /// </summary>
+    static readonly string textGettingReady = "Không gian AR cần được khởi tạo. \n" +
+        "Hãy xoay camera xung quanh khắp phòng đi nào. \n" +
+        "...Chưa sẵn sàng...";
+    /// <summary>
+    /// 
+    /// </summary>
+    static readonly string textReady = "Đã sẵn sàng.";
     /// <summary>
     /// 
     /// </summary>
     private void Start()
     {
+        txtSceneStatus.text = textGettingReady;
 #if UNITY_EDITOR
-        txtSceneStatus.gameObject.SetActive(false);
+        trnTextSceneStatus.gameObject.SetActive(false);
 #elif UNITY_IOS || UNITY_ANDROID
-        txtSceneStatus.gameObject.SetActive(true);        
+        trnTextSceneStatus.gameObject.SetActive(true);        
 #endif
     }
     /// <summary>
@@ -35,9 +50,9 @@ public class UserInterface : Singleton<UserInterface>
     /// <returns></returns>
     IEnumerator c_SetSceneStatusReady()
     {
-        txtSceneStatus.text = "Đã sẵn sàng";
+        txtSceneStatus.text = textReady;
         yield return new WaitForSeconds(2f);
-        txtSceneStatus.gameObject.SetActive(false);
+        trnTextSceneStatus.gameObject.SetActive(false);
         yield break;
     }
 }

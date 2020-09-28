@@ -49,7 +49,7 @@ MonoBehaviour:
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.08
   swimSpeedMin: 0.005
-  swimSpeedMax: 0.01
+  swimSpeedMax: 0.05
   minWiggleSpeed: 0.5
   maxWiggleSpeed: 1
   maxTurnRateY: 180

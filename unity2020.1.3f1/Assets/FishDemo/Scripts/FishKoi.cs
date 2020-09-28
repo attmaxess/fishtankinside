@@ -17,7 +17,6 @@ public class FishKoi : MonoBehaviour
     /// calculating turns to avoid obstacles.
     /// </summary>
     public Transform tankCenterGoal;
-
     /// <summary>
     /// Indicates how close an obstacle must be (in meters) before the fish 
     /// begins to take evasive action. 
@@ -25,38 +24,35 @@ public class FishKoi : MonoBehaviour
     [FishSkill(editable = true)]
     [Tooltip("Khoảng cách thấu thị")]
     public float obstacleSensingDistance = 0.8f;
-
     /// <summary>
     /// The minimum speed this fish should move in meters/second.
     /// </summary>
     [FishSkill(editable = true)]
     [Tooltip("Cận tốc")]
     public float swimSpeedMin = 0.2f;
-
     /// <summary>
     /// The maximum speed this fish should move in meters/second.
     /// </summary>
     [FishSkill(editable = true)]
     [Tooltip("Đạt tốc")]
     public float swimSpeedMax = 0.6f;
-
     /// <summary>
     /// Wiggle speed
     /// </summary>
     public float minWiggleSpeed = 12f;
+    /// <summary>
+    /// 
+    /// </summary>
     public float maxWiggleSpeed = 13f;
-
     /// <summary>
     /// Controls how quickly the fish can turn.
     /// </summary>
     public float maxTurnRateY = 5f;
-
     /// <summary>
     /// When the fish randomly changes direction while wondering, this value
     /// controls the maximum allowed change in direction.
     /// </summary>
     public float maxWanderAngle = 45f;
-
     /// <summary>
     /// Sets the duration of each wander period (in seconds). At the start of 
     /// each wander period the fish is given an opportunity to change direction. 
@@ -64,54 +60,65 @@ public class FishKoi : MonoBehaviour
     /// <tt>wanderProbability</tt>.
     /// </summary>
     public float wanderPeriodDuration = 0.8f;
-
     /// <summary>
     /// Indicates how likely the fish is to turn while wondering. A value from 
     /// 0 through 1.
     /// </summary>
     public float wanderProbability = 0.15f;
-
     /// <summary>
     /// Chi so can bang
     /// </summary>
     public Transform balanceMesh;
+    /// <summary>
+    /// 
+    /// </summary>
     public Vector3 balancePosition;
+    /// <summary>
+    /// 
+    /// </summary>
     public Quaternion balanceRotation;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    public float alphaBalanceRotation = 9f;
+    /// <summary>
+    /// 
+    /// </summary>
+    public Rigidbody rbody { get { if (_rbody == null) _rbody = GetComponent<Rigidbody>(); return _rbody; } }
+    /// <summary>
+    /// 
+    /// </summary>
+    Rigidbody _rbody;
     // The current speed of the fish in meters/second.
-    [HideInInspector]
-    public float swimSpeed;
-
+    [HideInInspector] public float swimSpeed;
     // The fish's current direction of movement.
     private Vector3 swimDirection
     {
         get { return transform.TransformDirection(Vector3.forward); }
     }
-
     // Flag to track whether an obstacle has been detected.
     private bool obstacleDetected = false;
-
     // The timestamp indicating when the current wander period started.
     private float wanderPeriodStartTime;
-
     // The orientation goal that the fish is rotating toward over time.
     private Quaternion goalLookRotation;
-
     // Cached reference to the fish body's transform.
     private Transform bodyTransform;
-
     // A random value set dynamically so that each fish's behavior is slightly
     // different.
     private float randomOffset;
-
     // Location variables used to draw debug aids.
     private Vector3 hitPoint;
+    /// <summary>
+    /// 
+    /// </summary>
     private Vector3 goalPoint;
-
 
     /* ----- MonoBehaviour Methods ----- */
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     void Start()
     {
         // Warn the developer loudly if they haven't set tankCenterGoal.
@@ -126,8 +133,9 @@ public class FishKoi : MonoBehaviour
         bodyTransform = transform.Find("Body");
         randomOffset = Random.value;
     }
-
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Update()
     {
         Wiggle();
@@ -139,24 +147,29 @@ public class FishKoi : MonoBehaviour
         Balance();
         CheckInView();
     }
-
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void OnDrawGizmos()
     {
         DrawDebugAids();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void OnEnable()
     {
         FisherCount.SetFishesCount(FisherCount.GetFishesCount() + 1);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void OnDisable()
     {
         FisherCount.SetFishesCount(FisherCount.GetFishesCount() - 1);
     }
-    /* ----- Fish Methods ----- */
 
+    /* ----- Fish Methods ----- */
 
     /// <summary>
     /// Updates the fish's wiggle animation.
@@ -173,8 +186,6 @@ public class FishKoi : MonoBehaviour
         var wiggleRotation = Quaternion.AngleAxis(angle, Vector3.up);
         bodyTransform.localRotation = wiggleRotation;
     }
-
-
     /// <summary>
     /// Defines the fish's wander behavior.
     /// </summary>
@@ -206,8 +217,6 @@ public class FishKoi : MonoBehaviour
         // Turn toward the fish's goal rotation.
         transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime / 2f);
     }
-
-
     /// <summary>
     /// Defines the fish's obstacle avoidance behavior.
     /// </summary>
@@ -253,14 +262,14 @@ public class FishKoi : MonoBehaviour
             transform.rotation = rotation;
         }
     }
-
-
     /// <summary>
     /// Draws visual debug aids that can be seen in the editor viewport.
     /// </summary>
     [Header("DrawDebugAids")]
     public bool isDrawDebugAids = false;
-
+    /// <summary>
+    /// 
+    /// </summary>
     void DrawDebugAids()
     {
         if (!isDrawDebugAids) return;
@@ -276,7 +285,6 @@ public class FishKoi : MonoBehaviour
         }
 
     }
-
     /// <summary>
     /// Updates the fish's position as it swims.
     /// </summary>
@@ -285,7 +293,6 @@ public class FishKoi : MonoBehaviour
         Vector3 position = transform.position + swimDirection * swimSpeed * Time.fixedDeltaTime;
         transform.position = position;
     }
-
     /// <summary>
     /// Debug the local rotation in quaternion
     /// </summary>
@@ -294,7 +301,6 @@ public class FishKoi : MonoBehaviour
     {
         Debug.Log(balanceMesh.localRotation);
     }
-
     /// <summary>
     /// Balance the fish
     /// </summary>
@@ -304,10 +310,11 @@ public class FishKoi : MonoBehaviour
             balanceMesh.localPosition = Vector3.Lerp(balanceMesh.localPosition, balancePosition, Time.fixedDeltaTime);
 
         if (balanceMesh.localRotation != balanceRotation)
-            balanceMesh.localRotation = Quaternion.Slerp(balanceMesh.localRotation, balanceRotation, Time.fixedDeltaTime);
+            balanceMesh.localRotation = Quaternion.Slerp(balanceMesh.localRotation, balanceRotation, Time.fixedDeltaTime * alphaBalanceRotation);
     }
 
     /* -- Check if fish in camera view --  */
+
     [Header("Check in range Camera view")]
     /// <summary>
     /// 
@@ -415,6 +422,9 @@ public class FishKoi : MonoBehaviour
     public void HeadToObject(Transform obj)
     {
         transform.LookAt(obj);
+        Vector3 direction = Camera.main.transform.position - transform.position;
+        Vector3 force = new Vector3(direction.x, direction.y, direction.z);
+        rbody.AddForce(force);
     }
     /// <summary>
     /// 
@@ -422,5 +432,27 @@ public class FishKoi : MonoBehaviour
     public void Turn180()
     {
         transform.Rotate(Vector3.up, 180);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("SelfSlap")]
+    public void SelfSlap()
+    {
+        Vector3 force = new Vector3(Random.Range(0.1f, 9f), Random.Range(0.1f, 9f), Random.Range(0.1f, 9f));
+        rbody.AddForce(force);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public float CameraForce = 9f;
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("CameraSlap")]
+    public void CameraSlap()
+    {
+        Vector3 force = transform.up * CameraForce;
+        rbody.AddTorque(force);
     }
 }

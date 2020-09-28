@@ -43,4 +43,11 @@ public class JoystickFishtank : MonoBehaviour
         if (Application.isPlaying) DestroyImmediate(FishSelectionStatic.fishSelection.lastSelect.gameObject);
         else Destroy(FishSelectionStatic.fishSelection.lastSelect.gameObject);
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void btnSlapFish()
+    {
+        FishSlap.Instance.SlapAllFish();
+    }
 }

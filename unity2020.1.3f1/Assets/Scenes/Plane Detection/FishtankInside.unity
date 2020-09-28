@@ -668,8 +668,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 77709743}
   outlineCamera: {fileID: 1634932238}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 2105667022}
-  extraRenderTexture: {fileID: 160996859}
+  renderTexture: {fileID: 602718628}
+  extraRenderTexture: {fileID: 376179536}
 --- !u!1 &79268123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4676691848620901065, guid: 871bdf925ef824ed083f189bbc9eb8e2,
@@ -920,41 +920,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!84 &160996859
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 750
-  m_Height: 1334
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 59
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &173942209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,6 +1148,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c44306fb1e439a9f18b2212b8ab70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!84 &376179536
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 750
+  m_Height: 1334
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 59
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &427002218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1443,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &602718628
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 750
+  m_Height: 1334
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 59
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &605174812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2577,6 +2612,7 @@ GameObject:
   - component: {fileID: 1327021854}
   - component: {fileID: 1327021855}
   - component: {fileID: 1327021856}
+  - component: {fileID: 1327021857}
   m_Layer: 0
   m_Name: Fishtemplate
   m_TagString: Untagged
@@ -2630,6 +2666,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lastSelect: {fileID: 0}
+--- !u!114 &1327021857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327021853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0860e4840e346e493ee8b252643288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1335839533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,7 +3094,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2105667022}
+  m_TargetTexture: {fileID: 602718628}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -3189,6 +3237,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1327021854}
     m_Modifications:
+    - target: {fileID: 2313206559166084278, guid: 13d8a6526e6bd4deebe55da2ef13fbb8,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313206559166084278, guid: 13d8a6526e6bd4deebe55da2ef13fbb8,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313206559166084278, guid: 13d8a6526e6bd4deebe55da2ef13fbb8,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4676691848620901065, guid: 13d8a6526e6bd4deebe55da2ef13fbb8,
         type: 3}
       propertyPath: m_Name
@@ -3254,6 +3317,11 @@ PrefabInstance:
       propertyPath: tankCenterGoal
       value: 
       objectReference: {fileID: 96061197}
+    - target: {fileID: 4883830946227829194, guid: 13d8a6526e6bd4deebe55da2ef13fbb8,
+        type: 3}
+      propertyPath: CameraForce
+      value: 99
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d8a6526e6bd4deebe55da2ef13fbb8, type: 3}
 --- !u!1 &1784288324
@@ -3563,6 +3631,26 @@ PrefabInstance:
       propertyPath: tankCenterGoal
       value: 
       objectReference: {fileID: 96061197}
+    - target: {fileID: 4883830946227829194, guid: f606a8c7a5163429b9dbe87dc521ae55,
+        type: 3}
+      propertyPath: CameraForce
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402501794140751867, guid: f606a8c7a5163429b9dbe87dc521ae55,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402501794140751867, guid: f606a8c7a5163429b9dbe87dc521ae55,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402501794140751867, guid: f606a8c7a5163429b9dbe87dc521ae55,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f606a8c7a5163429b9dbe87dc521ae55, type: 3}
 --- !u!1 &2063933811
@@ -3621,41 +3709,6 @@ MonoBehaviour:
   - {fileID: 1298196140}
   - {fileID: 551586787}
   - {fileID: 1711918400217468468}
---- !u!84 &2105667022
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 750
-  m_Height: 1334
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 59
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &691854398516785687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4551,6 +4604,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1327021854}
     m_Modifications:
+    - target: {fileID: 2259847879051608483, guid: 871bdf925ef824ed083f189bbc9eb8e2,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259847879051608483, guid: 871bdf925ef824ed083f189bbc9eb8e2,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259847879051608483, guid: 871bdf925ef824ed083f189bbc9eb8e2,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4676691848620901065, guid: 871bdf925ef824ed083f189bbc9eb8e2,
         type: 3}
       propertyPath: m_Name
@@ -4616,6 +4684,11 @@ PrefabInstance:
       propertyPath: tankCenterGoal
       value: 
       objectReference: {fileID: 96061197}
+    - target: {fileID: 4883830946227829194, guid: 871bdf925ef824ed083f189bbc9eb8e2,
+        type: 3}
+      propertyPath: CameraForce
+      value: 99
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 871bdf925ef824ed083f189bbc9eb8e2, type: 3}
 --- !u!4 &8539879607316021394 stripped

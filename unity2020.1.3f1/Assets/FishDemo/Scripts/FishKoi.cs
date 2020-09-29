@@ -80,6 +80,10 @@ public class FishKoi : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    public float alphaBalancePosition = 9f;
+    /// <summary>
+    /// 
+    /// </summary>
     public float alphaBalanceRotation = 9f;
     /// <summary>
     /// 
@@ -92,9 +96,11 @@ public class FishKoi : MonoBehaviour
     // The current speed of the fish in meters/second.
     [HideInInspector] public float swimSpeed;
     // The fish's current direction of movement.
-    private Vector3 swimDirection
+    private Vector3 swimDirection()
     {
-        get { return transform.TransformDirection(Vector3.forward); }
+        return currentWander == null ?
+            transform.TransformDirection(Vector3.forward)
+            : (currentWander.transform.position - transform.position).normalized;
     }
     // Flag to track whether an obstacle has been detected.
     private bool obstacleDetected = false;
@@ -138,14 +144,17 @@ public class FishKoi : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        Wiggle();
-        Wander();
-        AvoidObstacles();
+        if (!isDead)
+        {
+            Wiggle();
+            Wander(this.currentWander, this.speedWander);
+            AvoidObstacles();
 
+            UpdatePosition();
+            Balance();
+            CheckInView();
+        }
         //DrawDebugAids();
-        UpdatePosition();
-        Balance();
-        CheckInView();
     }
     /// <summary>
     /// 
@@ -187,10 +196,23 @@ public class FishKoi : MonoBehaviour
         bodyTransform.localRotation = wiggleRotation;
     }
     /// <summary>
+    /// 
+    /// </summary>
+    [SerializeField] GameObject currentWander;
+    /// <summary>
+    /// 
+    /// </summary>
+    [SerializeField] float speedWander = 1f;
+    /// <summary>
     /// Defines the fish's wander behavior.
     /// </summary>
-    void Wander()
+    public void Wander(GameObject target, float speedWander)
     {
+        if (currentWander != target)
+        {
+            currentWander = target;
+            this.speedWander = speedWander;
+        }
         // User Perlin noise to change the fish's speed over time in a random
         // but smooth fashion.
         float noiseScale = .5f;
@@ -200,22 +222,32 @@ public class FishKoi : MonoBehaviour
 
         if (obstacleDetected) return;
 
-        if (Time.time > wanderPeriodStartTime + wanderPeriodDuration)
+        if (currentWander == null)
         {
-            // Start a new wander period.
-            wanderPeriodStartTime = Time.time;
-
-            if (Random.value < wanderProbability)
+            if (Time.time > wanderPeriodStartTime + wanderPeriodDuration)
             {
-                // Pick new wander direction.
-                var randomAngle = Random.Range(-maxWanderAngle, maxWanderAngle);
-                var relativeWanderRotation = Quaternion.AngleAxis(randomAngle, Vector3.up);
-                goalLookRotation = transform.rotation * relativeWanderRotation;
-            }
-        }
+                // Start a new wander period.
+                wanderPeriodStartTime = Time.time;
 
-        // Turn toward the fish's goal rotation.
-        transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime / 2f);
+                if (Random.value < wanderProbability)
+                {
+                    // Pick new wander direction.
+                    var randomAngle = Random.Range(-maxWanderAngle, maxWanderAngle);
+                    var relativeWanderRotation = Quaternion.AngleAxis(randomAngle, Vector3.up);
+                    goalLookRotation = transform.rotation * relativeWanderRotation;
+                }
+            }
+
+            // Turn toward the fish's goal rotation.
+            transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime / 2f);
+        }
+        else
+        {
+            if ((currentWander.transform.position - transform.position).sqrMagnitude != 0)
+                transform.forward = currentWander.transform.position - transform.position;
+
+            swimSpeed *= speedWander;
+        }
     }
     /// <summary>
     /// Defines the fish's obstacle avoidance behavior.
@@ -224,7 +256,7 @@ public class FishKoi : MonoBehaviour
     {
         // Look ahead to see if an obstacle is within range.
         RaycastHit hit;
-        obstacleDetected = Physics.Raycast(transform.position, swimDirection, out hit, obstacleSensingDistance);
+        obstacleDetected = Physics.Raycast(transform.position, swimDirection(), out hit, obstacleSensingDistance);
 
         if (obstacleDetected)
         {
@@ -234,7 +266,7 @@ public class FishKoi : MonoBehaviour
             // where the fish would end up if it bounced off of the obstacle and
             // continued travelling. This will be one of our points of reference
             // for determining a new safe goal point.
-            Vector3 reflectionVector = Vector3.Reflect(swimDirection, hit.normal);
+            Vector3 reflectionVector = Vector3.Reflect(swimDirection(), hit.normal);
             float goalPointMinDistanceFromHit = 1f;
             Vector3 reflectedPoint = hit.point + reflectionVector * Mathf.Max(hit.distance, goalPointMinDistanceFromHit);
 
@@ -277,7 +309,7 @@ public class FishKoi : MonoBehaviour
         // evasive action it may be taking.
 
         Color rayColor = obstacleDetected ? Color.red : Color.cyan;
-        Debug.DrawRay(transform.position, swimDirection * obstacleSensingDistance, rayColor);
+        Debug.DrawRay(transform.position, swimDirection() * obstacleSensingDistance, rayColor);
 
         if (obstacleDetected)
         {
@@ -290,7 +322,7 @@ public class FishKoi : MonoBehaviour
     /// </summary>
     private void UpdatePosition()
     {
-        Vector3 position = transform.position + swimDirection * swimSpeed * Time.fixedDeltaTime;
+        Vector3 position = transform.position + swimDirection() * swimSpeed * Time.fixedDeltaTime;
         transform.position = position;
     }
     /// <summary>
@@ -307,7 +339,7 @@ public class FishKoi : MonoBehaviour
     void Balance()
     {
         if (balanceMesh.localPosition != balancePosition)
-            balanceMesh.localPosition = Vector3.Lerp(balanceMesh.localPosition, balancePosition, Time.fixedDeltaTime);
+            balanceMesh.localPosition = Vector3.Lerp(balanceMesh.localPosition, balancePosition, Time.fixedDeltaTime * alphaBalancePosition);
 
         if (balanceMesh.localRotation != balanceRotation)
             balanceMesh.localRotation = Quaternion.Slerp(balanceMesh.localRotation, balanceRotation, Time.fixedDeltaTime * alphaBalanceRotation);
@@ -445,14 +477,43 @@ public class FishKoi : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public float CameraForce = 9f;
+    public float CameraForceMultiple = 2f;
+    /// <summary>
+    /// 
+    /// </summary>
+    public float CameraTorqueMultiple = 30f;
     /// <summary>
     /// 
     /// </summary>
     [ContextMenu("CameraSlap")]
     public void CameraSlap()
     {
-        Vector3 force = transform.up * CameraForce;
-        rbody.AddTorque(force);
+        Vector3 direction = transform.position - Camera.main.transform.position;
+        rbody.AddForce(direction.normalized * CameraForceMultiple);
+
+        Vector3 torque = transform.up * CameraTorqueMultiple;
+        rbody.AddTorque(torque);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool isDead = false;
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("Die")]
+    public void Die()
+    {
+        isDead = true;
+        transform.up = -Vector3.up;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("Revive")]
+    public void Revive()
+    {
+        isDead = false;
+        transform.up = Vector3.up;
     }
 }

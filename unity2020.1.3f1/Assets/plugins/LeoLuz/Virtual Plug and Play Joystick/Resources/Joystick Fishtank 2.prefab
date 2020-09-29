@@ -425,7 +425,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7655196400116130521}
         m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
-        m_MethodName: btnDuplicateFish
+        m_MethodName: btnSlapFish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -557,7 +557,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7655196400116130521}
         m_TargetAssemblyTypeName: JoystickFishtank, Assembly-CSharp
-        m_MethodName: btnSlapFish
+        m_MethodName: btnDuplicateFish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

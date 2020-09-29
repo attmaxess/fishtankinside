@@ -11,10 +11,7 @@ public class JoystickFishtank : MonoBehaviour
     /// </summary>
     public void btnCallFish()
     {
-        Transform targetCall = FishSelectionStatic.fishSelection.lastSelect;
-        if (targetCall == null) return;
-        FishKoi fishKoi = targetCall.GetComponent<FishKoi>();
-        fishKoi.HeadToObject(Camera.main.transform);
+        FoodTemplate.Instance.Duplicate();
     }
     /// <summary>
     /// 

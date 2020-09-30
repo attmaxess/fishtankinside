@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8250244091872770559}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.010000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6984488639077606922
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8250244091872770559}
-  m_Mesh: {fileID: -2432090755550338912, guid: 3fb62f72b56804e308f7fb3921fdb6f8, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: a6f5172fbeea349f6817eb27fb682438, type: 3}
 --- !u!23 &1554106061480331195
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4611759551533685079, guid: 3fb62f72b56804e308f7fb3921fdb6f8, type: 3}
+  - {fileID: 2100000, guid: 5fadc46738a424cfa8d7fce4d76a2290, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,13 +91,13 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8250244091872770559}
-  m_Material: {fileID: 13400000, guid: 21271f28abef74a3192204ab79f229a7, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 3fb62f72b56804e308f7fb3921fdb6f8, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: a6f5172fbeea349f6817eb27fb682438, type: 3}
 --- !u!54 &2530302890776483349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,9 +129,9 @@ MonoBehaviour:
   obstacleDetected: 1
   distToCheckGround: 1
   lastCheckIsGround: 0
-  distToGround: 0.045
+  distToGround: 0.08
   offset: {x: 0, y: 0, z: 0}
   isDrawDebugAids: 1
   originPositionOffset: {x: 0, y: 0.5, z: 0}
-  originScale: {x: 0.1, y: 0.1, z: 0.1}
-  originQuaternion: {x: 0.7, y: 0, z: 0, w: 0.7}
+  originScale: {x: 0.01, y: 0.01, z: 0.01}
+  originQuaternion: {x: 0, y: 0, z: 0, w: 1}

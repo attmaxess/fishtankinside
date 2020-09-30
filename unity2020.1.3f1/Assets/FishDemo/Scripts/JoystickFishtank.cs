@@ -29,7 +29,7 @@ public class JoystickFishtank : MonoBehaviour
     public void btnDuplicateFish()
     {
         if (FishSelectionStatic.fishSelection.lastSelect == null) return;
-        Fishtemplate.Instance.Duplicate(FishSelectionStatic.fishSelection.lastSelect);
+        Fishtemplate.Instance.Duplicate(FishSelectionStatic.fishSelection.lastSelect.gameObject);
     }
     /// <summary>
     /// 

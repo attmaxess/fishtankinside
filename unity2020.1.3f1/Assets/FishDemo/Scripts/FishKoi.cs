@@ -16,7 +16,11 @@ public class FishKoi : MonoBehaviour
     /// A location inside the tank that will be used as a reference point when
     /// calculating turns to avoid obstacles.
     /// </summary>
-    public Transform tankCenterGoal;
+    public Transform tankCenterGoal { get { if (_tankCenterGoal == null) _tankCenterGoal = FindObjectOfType<TankCenter>().transform; return _tankCenterGoal; } }
+    /// <summary>
+    /// 
+    /// </summary>
+    public Transform _tankCenterGoal;
     /// <summary>
     /// Indicates how close an obstacle must be (in meters) before the fish 
     /// begins to take evasive action. 
@@ -515,5 +519,18 @@ public class FishKoi : MonoBehaviour
     {
         isDead = false;
         transform.up = Vector3.up;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    [Header("Original Koi")]
+    public Vector3 originScale = Vector3.one;
+    /// <summary>
+    /// 
+    /// </summary>
+    [ContextMenu("DebugTransform")]
+    public void DebugTransform()
+    {
+        Debug.Log("Lossy Scale " + transform.lossyScale);
     }
 }

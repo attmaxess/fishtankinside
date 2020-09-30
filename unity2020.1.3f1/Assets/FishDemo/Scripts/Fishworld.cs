@@ -17,7 +17,7 @@ public class Fishworld : Singleton<Fishworld>
     private void Start()
     {
 #if UNITY_EDITOR
-        fishWorldBody.gameObject.SetActive(true);
+        EnableFishTank();
 #elif UNITY_IOS || UNITY_ANDROID
         fishWorldBody.gameObject.SetActive(false);
         StartCoroutine(c_WaitForReadyToPlace());
@@ -38,7 +38,7 @@ public class Fishworld : Singleton<Fishworld>
                 transform.position = arPlanes[0].transform.position;
                 UserInterface.Instance.SetSceneStatusReady();
                 fishWorldBody.position = Camera.main.transform.position + Camera.main.transform.forward / 10f;
-                fishWorldBody.gameObject.SetActive(true);
+                EnableFishTank();
                 yield break;
             }
         }
@@ -64,6 +64,14 @@ public class Fishworld : Singleton<Fishworld>
         }
         if (closestARPlane == null) return;
         fishWorldBody.position = closestARPlane.centerInPlaneSpace;
+        EnableFishTank();
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    void EnableFishTank()
+    {
         fishWorldBody.gameObject.SetActive(true);
+        Fishtemplate.Instance.DuplicateAll();
     }
 }

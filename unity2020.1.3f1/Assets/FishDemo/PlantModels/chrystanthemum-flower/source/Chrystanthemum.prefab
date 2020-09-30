@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464237470799879838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.229, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464237470799879838}
-  m_Mesh: {fileID: -2432090755550338912, guid: 8c7bd0da562df46f28633d58bf690fa6, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 7cb6a43daf216407c8e4f2901108983b, type: 3}
 --- !u!23 &5979827509377037483
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -172062588034274871, guid: 8c7bd0da562df46f28633d58bf690fa6, type: 3}
+  - {fileID: 2100000, guid: 91592282b2571414e96d75af02550ba4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,13 +107,13 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464237470799879838}
-  m_Material: {fileID: 13400000, guid: 21271f28abef74a3192204ab79f229a7, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 8c7bd0da562df46f28633d58bf690fa6, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 7cb6a43daf216407c8e4f2901108983b, type: 3}
 --- !u!114 &7585683422156250603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,11 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleDetected: 1
-  distToCheckGround: 0.2
+  distToCheckGround: 0.5
   lastCheckIsGround: 0
   distToGround: 0.035
   offset: {x: 0, y: 0, z: 0}
   isDrawDebugAids: 1
   originPositionOffset: {x: 0, y: 0.5, z: 0}
-  originScale: {x: 0.1, y: 0.1, z: 0.1}
+  originScale: {x: 0.01, y: 0.01, z: 0.01}
   originQuaternion: {x: 0, y: 0, z: 0, w: 1}

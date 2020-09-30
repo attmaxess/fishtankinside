@@ -239,6 +239,7 @@ MonoBehaviour:
   CameraForceMultiple: 1.5
   CameraTorqueMultiple: 10
   isDead: 0
+  originScale: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!114 &4126169636859681333
 MonoBehaviour:
   m_ObjectHideFlags: 0

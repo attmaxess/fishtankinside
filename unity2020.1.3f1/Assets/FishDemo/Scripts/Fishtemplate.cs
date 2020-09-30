@@ -13,9 +13,34 @@ public class Fishtemplate : Singleton<Fishtemplate>
     /// <summary>
     /// 
     /// </summary>
-    public void Duplicate(Transform tr)
+    public void DuplicateAll()
     {
-        FishKoi newFish = GameObject.Instantiate(tr.gameObject, transform).GetComponent<FishKoi>();
+        StartCoroutine(c_DuplicateAll());
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator c_DuplicateAll()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (GameObject fish in templates)
+            {
+                Duplicate(fish);
+                yield return new WaitForSeconds(2.5f);
+            }
+        }
+        yield break;
+    }    
+    /// <summary>
+    /// 
+    /// </summary>
+    public void Duplicate(GameObject tr)
+    {
+        FishKoi newFish = GameObject.Instantiate(tr.gameObject, null).GetComponent<FishKoi>();
+        newFish.transform.localScale = newFish.originScale;
+        newFish.transform.SetParent(transform);
         newFish.Revive();
 
         Hungry hungry = newFish.gameObject.GetComponentInChildren<Hungry>();
@@ -23,5 +48,5 @@ public class Fishtemplate : Singleton<Fishtemplate>
 
         newFish.transform.position = Camera.main.transform.position + Camera.main.transform.forward / 10f;
         newFish.SetOffAllOutlines();
-    }    
+    }
 }

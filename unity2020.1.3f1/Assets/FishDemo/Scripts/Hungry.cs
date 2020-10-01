@@ -69,6 +69,14 @@ public class Hungry : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    public void Restart()
+    {
+        StopAllCoroutines();
+        Start();
+    }
+    /// <summary>
+    /// 
+    /// </summary>
     /// <returns></returns>
     IEnumerator c_BalanceUI()
     {

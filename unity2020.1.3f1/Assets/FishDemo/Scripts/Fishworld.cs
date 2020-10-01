@@ -72,6 +72,6 @@ public class Fishworld : Singleton<Fishworld>
     void EnableFishTank()
     {
         fishWorldBody.gameObject.SetActive(true);
-        Fishtemplate.Instance.DuplicateAll();
+        Fishtemplate.Instance?.DuplicateAll();
     }
 }

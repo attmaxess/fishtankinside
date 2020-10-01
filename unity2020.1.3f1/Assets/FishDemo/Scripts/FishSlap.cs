@@ -14,7 +14,7 @@ public class FishSlap : Singleton<FishSlap>
     /// <summary>
     /// 
     /// </summary>
-    public float slapdistance = 0.05f;
+    public float slapdistance = 0.5f;
     /// <summary>
     /// 
     /// </summary>
@@ -23,8 +23,12 @@ public class FishSlap : Singleton<FishSlap>
     {
         fishKois = FindObjectsOfType<FishKoi>().ToList();
         foreach (FishKoi fishKoi in fishKois)
-            if ((Camera.main.transform.position - fishKoi.transform.position).sqrMagnitude <= slapdistance)
-                fishKoi.CameraSlap();
+            if ((fishKoi.isDead) && ((Camera.main.transform.position - fishKoi.transform.position).sqrMagnitude <= slapdistance))
+            {
+                fishKoi.SelfSlap();
+                fishKoi.Revive();
+                fishKoi.GetComponentInChildren<Hungry>().Restart();
+            }
     }
     /// <summary>
     /// 

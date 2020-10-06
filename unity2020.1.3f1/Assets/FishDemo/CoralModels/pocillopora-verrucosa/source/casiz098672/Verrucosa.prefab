@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1632635420200809770}
   - component: {fileID: 2530302890776483349}
   - component: {fileID: 7374349012232104414}
-  m_Layer: 10
+  m_Layer: 18
   m_Name: Verrucosa
   m_TagString: Untagged
   m_Icon: {fileID: 0}

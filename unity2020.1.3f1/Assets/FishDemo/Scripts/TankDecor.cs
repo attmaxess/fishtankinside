@@ -46,11 +46,11 @@ public class TankDecor : Singleton<TankDecor>
                 if (aR.GetComponent<OriginalDecor>() == null)
                 {
                     originalDecor = aR.gameObject.AddComponent<OriginalDecor>();
-                    originalDecor.SelfBirth(templates[Random.Range(0, templates.Count)]);
+                    originalDecor.SelfBirthDecor(templates[Random.Range(0, templates.Count)]);                    
                 }
                 else if (originalDecor.decor == null)
                 {
-                    originalDecor.SelfBirth(templates[Random.Range(0, templates.Count)]);
+                    originalDecor.SelfBirthDecor(templates[Random.Range(0, templates.Count)]);
                 }
             }
             yield return new WaitForSeconds(2f);

@@ -14,13 +14,13 @@ GameObject:
   - component: {fileID: 6127864634014149018}
   - component: {fileID: 8555112656840192396}
   - component: {fileID: 5912520402733743474}
-  m_Layer: 10
+  m_Layer: 18
   m_Name: CoralReef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5108068002442893869
 Transform:
   m_ObjectHideFlags: 0
@@ -129,9 +129,9 @@ MonoBehaviour:
   obstacleDetected: 1
   distToCheckGround: 1
   lastCheckIsGround: 0
-  distToGround: 0.015
+  distToGround: 0.04
   offset: {x: 0, y: 0, z: 0}
   isDrawDebugAids: 1
-  originPositionOffset: {x: 0, y: 0.5, z: 0}
+  originPositionOffset: {x: 0, y: 0.1, z: 0}
   originScale: {x: 0.1, y: 0.1, z: 0.1}
   originQuaternion: {x: 0, y: 0, z: 0, w: 1}

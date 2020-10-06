@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishname: "C\xE1 xi\xEAm"
-  tankCenterGoal: {fileID: 0}
+  _tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.08
   swimSpeedMin: 0.005
   swimSpeedMax: 0.05
@@ -278,11 +278,11 @@ Rigidbody:
   m_GameObject: {fileID: 4676691848620901065}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 3
-  m_AngularDrag: 3
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &4654699603920672735

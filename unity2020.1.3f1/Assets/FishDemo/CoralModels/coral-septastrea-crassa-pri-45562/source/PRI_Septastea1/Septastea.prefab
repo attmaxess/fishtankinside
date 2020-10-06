@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7013041721301072294}
   - component: {fileID: 8772028863180776455}
   - component: {fileID: 5959864650288270177}
-  m_Layer: 10
+  m_Layer: 18
   m_Name: Septastea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

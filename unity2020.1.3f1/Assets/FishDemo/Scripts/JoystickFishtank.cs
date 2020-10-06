@@ -47,4 +47,11 @@ public class JoystickFishtank : MonoBehaviour
     {
         FishSlap.Instance.SlapAllFish();
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void btnCreateSeaweed()
+    {
+        TankSeaweed.Instance.DuplicateRandom();
+    }
 }

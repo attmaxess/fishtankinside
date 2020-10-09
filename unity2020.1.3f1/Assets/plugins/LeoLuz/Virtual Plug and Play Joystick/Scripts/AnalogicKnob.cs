@@ -138,11 +138,14 @@ namespace LeoLuz.PlugAndPlayJoystick
             AnchoredAreaBounds = new Bounds(new Vector2(NormalizedAnchoredAreaBounds.center.x * CanvasRect.sizeDelta.x, NormalizedAnchoredAreaBounds.center.y * CanvasRect.sizeDelta.y)
                 , new Vector2(NormalizedAnchoredAreaBounds.size.x * CanvasRect.sizeDelta.x, NormalizedAnchoredAreaBounds.size.y * CanvasRect.sizeDelta.y));
 
-			if (AnalogicStartAnchoredPosition == Vector2.zero) {
-				AnalogicStartAnchoredPosition = rectTransform.anchoredPosition;
-			} else {
-				rectTransform.anchoredPosition = AnalogicStartAnchoredPosition;
-			}
+            if (AnalogicStartAnchoredPosition == Vector2.zero)
+            {
+                AnalogicStartAnchoredPosition = rectTransform.anchoredPosition;
+            }
+            else
+            {
+                rectTransform.anchoredPosition = AnalogicStartAnchoredPosition;
+            }
 
             AnalogicStartPosition = transform.position;
             ScreenPixels = new Vector2(Screen.width, Screen.height);
@@ -180,16 +183,17 @@ namespace LeoLuz.PlugAndPlayJoystick
         }
 
 
-		void RecalculateLayout() {
-			Debug.Log ("Recalculating the layout");
-			Start();
-		}
+        void RecalculateLayout()
+        {
+            Debug.Log("Recalculating the layout");
+            Start();
+        }
         void Update()
         {
-			if (_devOrientation != UnityEngine.Input.deviceOrientation || ScreenPixels.x != Screen.width || ScreenPixels.y != Screen.height)
-				RecalculateLayout ();
+            if (_devOrientation != UnityEngine.Input.deviceOrientation || ScreenPixels.x != Screen.width || ScreenPixels.y != Screen.height)
+                RecalculateLayout();
 
-            
+
             lastFrameNormalizedAxis = NormalizedAxis;
 
             //SIMULATED MOBILE VIRTUAL JOYSTICK KNOB ON EDITOR AND EFFETIVE MOBILE VIRTUAL JOYSTICK KNOB
@@ -332,6 +336,7 @@ namespace LeoLuz.PlugAndPlayJoystick
             }
             return -1;
 #endif
+            return -1;
         }
 
         int GetAnalogTouchFingerIDInsideArea(int id)
@@ -345,6 +350,7 @@ namespace LeoLuz.PlugAndPlayJoystick
 
             return Input.GetTouch(id).fingerId;            
 #endif
+            return -1;
         }
     }
 
@@ -362,7 +368,7 @@ namespace LeoLuz.PlugAndPlayJoystick
 #if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS || UNITY_WP_8 || UNITY_WP_8_1)
                 return Input.touchCount;
 #endif
-
+                return -1;
             }
         }
 
@@ -374,6 +380,7 @@ namespace LeoLuz.PlugAndPlayJoystick
 #if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS || UNITY_WP_8 || UNITY_WP_8_1)
             return Input.GetTouch(id);
 #endif
+            return new Touch();
         }
 
         public static Touch GetTouchByFingerID(int fingerID)
@@ -390,9 +397,11 @@ namespace LeoLuz.PlugAndPlayJoystick
             }
             return new Touch();
 #endif
+            return new Touch();
         }
 
-        public static Touch MakefakeTouchOnPc() {
+        public static Touch MakefakeTouchOnPc()
+        {
             var touch = new Touch();
             touch.position = UnityEngine.Input.mousePosition;
             touch.phase =

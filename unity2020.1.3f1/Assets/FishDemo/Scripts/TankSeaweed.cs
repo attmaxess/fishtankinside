@@ -74,11 +74,7 @@ public class TankSeaweed : Singleton<TankSeaweed>
         Seaweed newSeaweed = Instantiate(seaweedRandom.gameObject, null).GetComponent<Seaweed>();
         newSeaweed.transform.position = offsetCenter.position + shortDir * 2.5f;
         TriggerManager newSeaweedTrigger = newSeaweed.GetComponent<TriggerManager>();
-        while (newSeaweedTrigger.isTrigger())
-        {
-            newSeaweed.transform.Translate(shortDir.normalized);
-            yield return new WaitForEndOfFrame();
-        }
+        yield return new WaitUntil(() => newSeaweedTrigger.isTrigger() == false);        
         newSeaweed.GetComponent<ReleaseConstraintDependTrigger>().StartRelease();
         yield break;
     }

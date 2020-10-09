@@ -2671,6 +2671,7 @@ GameObject:
   - component: {fileID: 373371100602903078}
   - component: {fileID: 1980508646}
   - component: {fileID: 1980508647}
+  - component: {fileID: 4879371106587848248}
   - component: {fileID: 3891648482566215375}
   - component: {fileID: 1539267683}
   m_Layer: 17
@@ -2795,9 +2796,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8480736d97fd44a4a34df58f6ac581c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onTriggerAlpha: 0.8
-  offTriggerAlpha: 0.3
-  _Alpha: 0.7
+  onTriggerAlpha: 0.6
+  offTriggerAlpha: 0.1
+  _Alpha: 0.6
+--- !u!114 &4879371106587848248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551596052320800725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb8c8bcd302345a88d207526f0b5d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDrifting: 0
 --- !u!114 &3891648482566215375
 MonoBehaviour:
   m_ObjectHideFlags: 0

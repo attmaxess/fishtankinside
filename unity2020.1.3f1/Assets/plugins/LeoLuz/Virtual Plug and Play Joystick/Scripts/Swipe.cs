@@ -60,7 +60,7 @@ namespace LeoLuz.PlugAndPlayJoystick
         {
             if (pressed)
             {
-                Vector2 ResultPosition;
+                Vector2 ResultPosition = new Vector2();
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
                 ResultPosition = (Vector2)UnityEngine.Input.mousePosition - StartPosition;
 #endif
@@ -110,7 +110,7 @@ namespace LeoLuz.PlugAndPlayJoystick
         public virtual void OnPointerUp(PointerEventData data)
         {
             pressed = false;
-            Vector2 ResultPosition;
+            Vector2 ResultPosition = new Vector2();
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
             ResultPosition = (Vector2)UnityEngine.Input.mousePosition - StartPosition;
 #endif

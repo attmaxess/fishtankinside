@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 1
   accelerometerFrequency: 60
-  companyName: ntq
+  companyName: com.ntq.os6
   productName: fishgame
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -181,7 +181,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.unity.arfoundation.samples1
     Standalone: com.unity.arfoundation.samples
-    iPhone: com.ntq.fishgame
+    iPhone: com.ntq.os6.fishgame
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 24

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "759163437578",
+    "firebase_url": "https://your-first-pet-fish.firebaseio.com",
+    "project_id": "your-first-pet-fish",
+    "storage_bucket": "your-first-pet-fish.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759163437578:android:a66d27615090dd925255f3",
+        "android_client_info": {
+          "package_name": "com.ntq.os6.fishgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759163437578-73v1duurh1k0vgapmm3rob543ben0opb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvPmbg6q2puKCZ1FVuGicH7smh8ipk474"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759163437578-73v1duurh1k0vgapmm3rob543ben0opb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "759163437578-tkuqkpl65ks5uts31k0t6kpnfmdv8hti.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ntq.os6.fishgame"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

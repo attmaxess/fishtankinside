@@ -10,6 +10,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static bool m_ShuttingDown = false;
     private static object m_Lock = new object();
     private static T m_Instance;
+    private static bool m_DontDestroyOnLoad = false;
 
     /// <summary>
     /// Access singleton instance through this propriety.
@@ -32,17 +33,26 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                     // Search for existing instance.
                     m_Instance = (T)FindObjectOfType(typeof(T));
 
-                    //// Create new instance if one doesn't already exist.
-                    //if (m_Instance == null)
-                    //{
-                    //    // Need to create a new GameObject to attach the singleton to.
-                    //    var singletonObject = new GameObject();
-                    //    m_Instance = singletonObject.AddComponent<T>();
-                    //    singletonObject.name = typeof(T).ToString() + " (Singleton)";
+                    // Create new instance if one doesn't already exist.
+                    if (m_Instance == null)
+                    {
+                        // Need to create a new GameObject to attach the singleton to.
+                        var singletonObject = new GameObject();
+                        m_Instance = singletonObject.AddComponent<T>();
+                        singletonObject.name = typeof(T).ToString() + " (Singleton)";
 
-                    //    // Make instance persistent.
-                    //    DontDestroyOnLoad(singletonObject);
-                    //}
+                        // Make instance persistent.
+                        DontDestroyOnLoad(singletonObject);
+                    }
+                }
+
+                if (!m_DontDestroyOnLoad)
+                {
+                    if (m_Instance.gameObject.scene.buildIndex == -1)
+                    {
+                        DontDestroyOnLoad(m_Instance.gameObject);
+                    }
+                    m_DontDestroyOnLoad = true;
                 }
 
                 return m_Instance;
